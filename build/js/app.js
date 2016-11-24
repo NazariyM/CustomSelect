@@ -31,31 +31,35 @@ $(document).ready(function() {
 		select.wrap("<div class='select-style'></div>");
 		select.after('<div class="custom-select js-custom-select"></div>');
 		select.after('<div class="current-option js-current-option">' + 'Город*' + '</div>');
-
-		var customSelect = $('.js-custom-select'),
-			currentOption = $('.js-current-option');
-
 		select.children().each(function() {
-			customSelect.append('<div class="custom-select__option">' + $(this).val() + '</div>');
+			$('.js-custom-select').append('<div class="custom-select__option">' + $(this).val() + '</div>');
 		});
 
-		currentOption.on('click', function() {
-			$(this).next().slideToggle();
-			$(this).toggleClass('is-active');
-		});
+		select.each(function() {
+			var currentOption = $(this).next(),
+				customSelect = currentOption.next();
 
-		customSelect.children().on('click', function() {
-			$(this).addClass('is-active').siblings().removeClass('is-active');
-			select.children().eq($(this).index()).attr('selected', true).siblings().removeAttr('selected');
-			currentOption.text($(this).text()).addClass('is-selected');
-			$(this).parent().slideUp();
-		});
+			currentOption.on('click', function() {
+				customSelect.slideToggle();
+				$(this).toggleClass('is-active');
+			});
 
-		$(document).click(function(e) {
-			if (!currentOption.is(e.target) && currentOption.has(e.target).length === 0) {
-				currentOption.removeClass('is-active');
-				customSelect.slideUp();
-			}
+			customSelect.children().on('click', function() {
+				var index = $(this).index(),
+				text = $(this).text();
+
+				$(this).addClass('is-active').siblings().removeClass('is-active');
+				$(this).siblings('select').children().eq(index).attr('selected', true).siblings().removeAttr('selected');
+				currentOption.text(text).addClass('is-selected');
+				$(this).parent().slideUp();
+			});
+
+			// $(document).click(function(e) {
+			// 	if (!currentOption.is(e.target) && currentOption.has(e.target).length === 0) {
+			// 		currentOption.removeClass('is-active');
+			// 		customSelect.slideUp();
+			// 	}
+			// });
 		});
 	})();
 });
