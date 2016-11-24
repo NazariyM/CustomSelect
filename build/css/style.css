@@ -34,10 +34,10 @@ html { -webkit-box-sizing: border-box; box-sizing: border-box; }
 body { font-family: Arial, sans-serif; font-size: 12px; line-height: 1.4; }
 
 .city { max-width: 700px; padding: 50px 60px; background-color: #f8f8f8; }
-.city__select-style { position: relative; }
-.city__select-style::after { content: ""; position: absolute; top: -webkit-calc(50% - 4px); top: calc(50% - 4px); right: 28px; width: 0px; height: 0px; border-style: solid; border-width: 7px 4px 0 4px; border-color: #444444 transparent transparent transparent; }
-.city__select { width: 100%; padding: 10px; -webkit-appearance: none; color: #444444; border: 1px solid #e2e2e2; font-size: 15px; font-weight: 700; cursor: pointer; }
 .city__item { padding: 10px; }
+
+.custom-select { display: none; }
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px){
  *{ -webkit-text-size-adjust: none; } }
 
