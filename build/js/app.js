@@ -31,6 +31,7 @@ $(document).ready(function() {
 		select.wrap("<div class='select-style'></div>");
 		select.after('<div class="custom-select js-custom-select"></div>');
 		select.after('<div class="current-option js-current-option">' + 'Город*' + '</div>');
+
 		var customSelect = $('.js-custom-select'),
 			currentOption = $('.js-current-option');
 
@@ -59,5 +60,4 @@ $(document).ready(function() {
 			}
 		});
 	})();
-
 });
