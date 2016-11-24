@@ -27,11 +27,9 @@ $(document).ready(function() {
 			$(this).parent().slideUp();
 		});
 
-		$(document).mouseup(function(e) {
-			if (!currentOption.is(e.target)
-				&&
-				currentOption.has(e.target).length === 0)
-			{
+		$(document).click(function(e) {
+			if (!currentOption.is(e.target) && currentOption.has(e.target).length === 0) {
+				currentOption.removeClass('is-active');
 				customSelect.slideUp();
 			}
 		});
