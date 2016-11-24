@@ -1,39 +1,39 @@
 $(document).ready(function() {
 
-    (function() {
+	(function() {
 
-        var select = $('.js-select');
+		var selectDefault = $('.js-select-default'),
+			select = $('.js-select');
 
-        select.after('<div class="custom-select js-custom-select"></div>');
-        select.after('<div class="current-option js-current-option">' + 'Placeholder' + '</div>');
-        var customSelect = $('.js-custom-select'),
-            currentOption = $('.js-current-option');
+		selectDefault.after('<div class="custom-select js-custom-select"></div>');
+		selectDefault.after('<div class="current-option js-current-option">' + 'Город*' + '</div>');
+		var customSelect = $('.js-custom-select'),
+			currentOption = $('.js-current-option');
 
-        select.children().each(function() {
-            customSelect.append('<div class="">' + $(this).val() + '</div>');
-        });
+		selectDefault.children().each(function() {
+			customSelect.append('<div class="custom-select__option">' + $(this).val() + '</div>');
+		});
 
-        currentOption.on('click', function() {
-            $(this).next().fadeToggle();
-        });
+		currentOption.on('click', function() {
+			$(this).next().slideToggle();
+			$(this).toggleClass('is-active');
+		});
 
-        customSelect.children().on('click', function() {
-            $(this).addClass('is-active').siblings().removeClass('is-active');
-            select.children().eq($(this).index()).attr('selected', true).siblings().removeAttr('selected');
-            currentOption.text($(this).text());
-            $(this).parent().fadeOut();
-        });
+		customSelect.children().on('click', function() {
+			$(this).addClass('is-active').siblings().removeClass('is-active');
+			selectDefault.children().eq($(this).index()).attr('selected', true).siblings().removeAttr('selected');
+			currentOption.text($(this).text()).addClass('is-selected');
+			$(this).parent().slideUp();
+		});
 
-        $(document).mouseup(function(e) {
-            var container = $("YOUR CONTAINER SELECTOR");
-
-            if (!container.is(e.target) // if the target of the click isn't the container...
-                &&
-                container.has(e.target).length === 0) // ... nor a descendant of the container
-            {
-                container.hide();
-            }
-        });
-    })();
+		$(document).mouseup(function(e) {
+			if (!select.is(e.target)
+				&&
+				select.has(e.target).length === 0)
+			{
+				customSelect.slideUp();
+			}
+		});
+	})();
 
 });

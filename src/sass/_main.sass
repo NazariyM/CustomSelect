@@ -1,19 +1,45 @@
-.city
+.select-wrapper
+
+
+.select, .custom-select
+	display: none
+.select-style
+
 	max-width: 700px
+	margin: 0 auto
 	padding: 50px 60px
 	background-color: #f8f8f8
-	&__select-style
-	// &__select
-	// 	width: 100%
-	// 	padding: 10px
-	// 	-webkit-appearance: none
-	// 	color: #444444
-	// 	border: 1px solid #e2e2e2
-	// 	font-size: 15px
-	// 	font-weight: 700
-	// 	cursor: pointer
-	&__item
-		padding: 10px
-
+.current-option
+	padding: 14px 40px 14px 20px
+	position: relative
+	color: #a7a7a7
+	font-size: 15px
+	background-color: #fff
+	border: 1px solid #e2e2e2
+	background-color: #fff
+	cursor: pointer
+	&.is-active::after
+		transform: rotate(180deg)
+	&.is-selected
+		color: #000
+		font-weight: 700
+	&::after
+		content: ''
+		position: absolute
+		top: calc(50% - 4px)
+		right: 20px
+		+arr(8,7, #000, t)
+		transition: transform .3s ease-in
 .custom-select
-	display: none
+	margin-top: 5px
+	font-size: 15px
+	color: #000
+	font-weight: 700
+	background-color: #fff
+	border: 1px solid #e2e2e2
+	&__option
+		padding: 6px 20px
+		cursor: pointer
+		transition: background-color .2s ease-in
+		&:hover
+			background-color: darken(#f8f8f8, 10)
