@@ -23,8 +23,11 @@ $(document).ready(function() {
 							$(this).parent().removeClass('is-active');
 						});
 					} else {
+						$(this).parent().addClass('is-priora');
 						$(this).parent().addClass('is-active');
-						customSelect.slideDown();
+						customSelect.slideDown(function(){
+							$(this).parent().removeClass('is-priora');
+						});
 					}
                 $(this).toggleClass('is-active');
             });
