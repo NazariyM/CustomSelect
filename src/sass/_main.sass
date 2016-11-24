@@ -1,10 +1,13 @@
 .select, .custom-select
 	display: none
 .select-style
+	position: relative
 	max-width: 700px
 	margin: 0 auto
 	padding: 50px 60px
-	background-color: #f8f8f8
+	z-index: 1
+	&.is-active
+		z-index: 2
 .current-option
 	padding: 14px 40px 14px 20px
 	position: relative
@@ -12,7 +15,6 @@
 	font-size: 15px
 	background-color: #fff
 	border: 1px solid #e2e2e2
-	background-color: #fff
 	cursor: pointer
 	&.is-active::after
 		transform: rotate(180deg)
@@ -27,14 +29,18 @@
 		+arr(8,7, #000, t)
 		transition: transform .3s ease-in
 .custom-select
-	margin-top: 5px
+	position: absolute
+	top: 110px
+	width: 580px
 	max-height: 200px
 	overflow-y: auto
 	color: #000
-	background-color: #fff
 	border: 1px solid #e2e2e2
 	font-size: 15px
 	font-weight: 700
+	z-index: 10
+	background-color: #fff
+	box-shadow: 10px 17px 17px rgba(#000, .2)
 	&__option
 		padding: 6px 20px
 		cursor: pointer
