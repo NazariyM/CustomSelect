@@ -49,11 +49,11 @@ $(document).ready(function() {
 				text = $(this).text();
 
 				$(this).addClass('is-active').siblings().removeClass('is-active');
-				$(this).siblings('select').children().eq(index).attr('selected', true).siblings().removeAttr('selected');
+				$(this).parents('select').children().remove();
 				currentOption.text(text).addClass('is-selected');
 				$(this).parent().slideUp();
 			});
-
+// $(this).parent(select).children().eq(index).attr('selected', true).siblings().removeAttr('selected');
 			// $(document).click(function(e) {
 			// 	if (!currentOption.is(e.target) && currentOption.has(e.target).length === 0) {
 			// 		currentOption.removeClass('is-active');
