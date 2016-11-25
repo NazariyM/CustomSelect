@@ -37,12 +37,12 @@ body { font-family: Arial, sans-serif; font-size: 12px; line-height: 1.4; }
 
 .select-style { position: relative; max-width: 700px; margin: 0 auto; padding: 50px 60px; z-index: 1; }
 .select-style.is-active { z-index: 2; }
-.select-style.is-priora { z-index: 3; }
+.select-style.is-priority { z-index: 3; }
 
 .current-option { padding: 14px 40px 14px 20px; position: relative; color: #a7a7a7; font-size: 15px; background-color: #fff; border: 1px solid #e2e2e2; cursor: pointer; }
-.current-option.is-active::after { -webkit-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); }
+.current-option.is-active::after { -webkit-transform: rotate(-180deg); -ms-transform: rotate(-180deg); transform: rotate(-180deg); }
 .current-option.is-selected { color: #444444; font-weight: 700; }
-.current-option::after { content: ""; position: absolute; top: -webkit-calc(50% - 4px); top: calc(50% - 4px); right: 20px; width: 0px; height: 0px; border-style: solid; border-width: 0 4px 7px 4px; border-color: transparent transparent #000 transparent; -webkit-transition: -webkit-transform 0.3s ease-in; transition: -webkit-transform 0.3s ease-in; transition: transform 0.3s ease-in; transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in; }
+.current-option::after { content: ""; position: absolute; top: -webkit-calc(50% - 4px); top: calc(50% - 4px); right: 20px; width: 0px; height: 0px; border-style: solid; border-width: 7px 4px 0 4px; border-color: #000 transparent transparent transparent; -webkit-transition: -webkit-transform 0.3s ease-in; transition: -webkit-transform 0.3s ease-in; transition: transform 0.3s ease-in; transition: transform 0.3s ease-in, -webkit-transform 0.3s ease-in; }
 
 .custom-select { position: absolute; top: 110px; width: 580px; max-height: 200px; overflow-y: auto; color: #000; border: 1px solid #e2e2e2; font-size: 15px; font-weight: 700; z-index: 10; background-color: #fff; -webkit-box-shadow: 10px 17px 17px rgba(0, 0, 0, 0.2); box-shadow: 10px 17px 17px rgba(0, 0, 0, 0.2); }
 .custom-select__option { padding: 6px 20px; cursor: pointer; -webkit-transition: background-color 0.2s ease-in; transition: background-color 0.2s ease-in; color: #444444; }
